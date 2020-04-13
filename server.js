@@ -20,6 +20,11 @@ app.set("view engine", "handlebars");
 // const catRoutes = require("./controllers/catsController.js");
 
 // app.use(catRoutes);
+
+app.get("/", function (req, res) {
+  res.render("index");
+});
+
 app.get("/config", function (req, res) {
   res.json({
     success: true,
