@@ -15,3 +15,11 @@
 * 
 
 
+"development": {
+    "username": "root",
+    "password": "Mickey19",
+    "database": "nerd_alert_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
