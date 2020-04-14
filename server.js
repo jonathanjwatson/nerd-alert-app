@@ -24,15 +24,15 @@ app.set("view engine", "handlebars");
 // app.use(catRoutes);
 
 app.get("/", function (req, res) {
-    db.Game.findAll({}).then(games => {
-        console.log(games);
-        res.render("index", {games});
-    })
-  
+  db.Game.findAll({}).then((games) => {
+    console.log(games);
+    res.render("index", { games });
+  });
 });
 
 app.get("/config", function (req, res) {
   res.json({
+    error: false,
     success: true,
   });
 });
