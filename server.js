@@ -34,11 +34,12 @@ app.get("/config", function (req, res) {
   res.json({
     error: false,
     success: true,
+    test: false
   });
 });
 
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log(`Server listening on: http://localhost:${PORT}`);
-  })
-})
+  });
+});
