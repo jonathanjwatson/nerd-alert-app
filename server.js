@@ -24,7 +24,11 @@ app.set("view engine", "handlebars");
 // app.use(catRoutes);
 
 app.get("/", function (req, res) {
-  res.render("index");
+    db.Game.findAll({}).then(games => {
+        console.log(games);
+        res.render("index", {games});
+    })
+  
 });
 
 app.get("/config", function (req, res) {
@@ -33,7 +37,7 @@ app.get("/config", function (req, res) {
   });
 });
 
-db.sequelize.sync({force: true}).then(function () {
+db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log(`Server listening on: http://localhost:${PORT}`);
   });
