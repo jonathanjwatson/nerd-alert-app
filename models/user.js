@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-  var Game = sequelize.define("Game", {
-    title: {
+  var User = sequelize.define("User", {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -9,12 +9,12 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  Game.associate = function (models) {
-    Game.belongsToMany(models.User, {
+  User.associate = function (models) {
+    User.belongsToMany(models.Game, {
       through: "UserGames",
-      foreignKey: "gameId",
+      foreignKey: "userId",
     });
   };
 
-  return Game;
+  return User;
 };
